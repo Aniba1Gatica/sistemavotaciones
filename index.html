@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <fieldset>
+        <head>
+            <meta charset="UTF-8">
+            <title>FORMULARIO DE VOTACIÓN</title>
+            <style>
+            /* Estilo para el contenedor de grupos de entrada */
+            .input-group {
+                display: flex; /* Utiliza el modelo de caja flexible para organizar los elementos */
+                align-items: center; /* Centra verticalmente los elementos dentro del contenedor */
+                margin-bottom: 5px; /* Espacio entre grupos de entrada */
+                width: 400px; /* Ancho fijo del contenedor */
+            }
+
+            /* Estilo para las etiquetas dentro del grupo de entrada */
+            .input-group label {
+                flex: 0.9; /* Ocupa el 90% del espacio disponible */
+                text-align: left; /* Alinea el texto a la izquierda */
+                padding-right: 10px; /* Espacio entre la etiqueta y el campo de entrada */
+            }
+
+            /* Estilo para campos de entrada (input) y select dentro del grupo */
+            .input-group input,
+            .input-group select {
+                flex: 1; /* Ocupa el espacio restante */
+                margin-left: 5px; /* Espacio entre el campo de entrada y la etiqueta */
+                width: 100%; /* Ancho completo */
+            }
+
+            /* Estilo específico para elementos de tipo select */
+            .input-group select {
+                padding: 3px; /* Espacio interno dentro del select */
+                border: 1px; /* Grosor del borde */
+            }
+
+            /* Estilo específico para checkboxes */
+            .input-group input[type="checkbox"] {
+                margin-right: 2px; /* Espacio entre checkboxes */
+                background-color: rgb(198, 198, 198); /* Color de fondo para checkboxes */
+            }
+
+            /* Estilo para el texto con clase 'how-found' */
+            .how-found {
+                white-space: nowrap; /* Evita el salto de línea en el texto */
+            }
+            </style>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!--  Incluye jQuery -->
+        </head>
+        <body>
+            <form id="formulario-votación" style="width: auto;" action="conexiones.php" method="post">
+                <h1>FORMULARIO DE VOTACIÓN</h1>
+                <fieldset style="width: 45%; border: 2px inset white;">
+                    <!--  Inicio del formulario -->
+                    <div class="input-group"> 
+                        <label for="votante" class="input-group">Nombre y Apellido:</label>
+                        <input type="text" name="votante" id="votante" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄČĆĖÈÉÊËĖĮÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇČŠŽ\s]+" 
+                            title="El nombre y apellido deben contener solo letras y caracteres especiales como á, é, í, ó, ú, ü, ñ, etc." required />
+                    </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="alias" class="input-group">Alias:</label>
+                        <input type="text" name="alias" id="alias" required/>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="rut" class="input-group">RUT:</label>
+                        <input type="text" name="rut" id="rut" pattern="\d{1,3}\.?\d{3}\.?\d{3}-[\dkK]" 
+                            title="El RUT debe tener el siguiente formato (XXX.XXX.XXX-X o XXXXX.XXX-X/K)." required />
+                      </div>
+
+                    <div class="input-group">
+                        <label for="correo" class="input-group">Email:</label>
+                        <input type="email" name="correo" id="correo" required/>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="id_region" class="input-group">Región:</label>
+                        <select id="id_region" name="region" autocomplete="off" required>
+                            <option  value=""></option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="id_comuna" class="input-group">Comuna:</label>
+                        <select id="id_comuna" name="comuna" required></select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="id_candidato" class="input-group">Candidato:</label>
+                        <select id="id_candidato" name="candidato" required>
+                        </select>
+                    </div>
+                    <!-- Sección del checkbox -->
+                    <div class="input-group how-found">
+                        ¿Cómo se enteró de nosotros?
+                        <div style="display:flex; align-items: center; margin-left: 10px;">
+                          <input type="checkbox" name="web" id="web" />
+                          <label for="web">Web</label>
+                        </div>
+                        <div style="display:flex; align-items: center; margin-left: 10px;">
+                          <input type="checkbox" name="TV" id="TV" />
+                          <label for="TV">TV</label>
+                        </div>
+                        <div style="display:flex; align-items: center; margin-left: 10px;">
+                          <input type="checkbox" name="redesSociales" id="redesSociales" />
+                          <label for="redesSociales">Redes Sociales</label>
+                        </div>
+                        <div style="display:flex; align-items: center; margin-left: 10px;">
+                          <input type="checkbox" name="amigo" id="amigo"/>
+                          <label for="amigo">Amigo</label><br/>
+                        </div>
+                    </div>
+                    <p><button type="submit">Votar</button></p>
+                </fieldset>
+                <div id="mensaje"></div>
+                <script src="regiones.js"></script>
+                <script src="votacion.js"></script>
+            </form>
+            <br>
+        </body>
+    </fieldset>
+</html>
