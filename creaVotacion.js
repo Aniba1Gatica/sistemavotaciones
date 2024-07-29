@@ -31,7 +31,7 @@ $(document).ready(function() {
       if (webChecked || TVChecked || redesSocialesChecked || amigoChecked) {
         $.ajax({
           type: "POST",
-          url: "conexiones.php",
+          url: "verificaVotacion.php",
           data: datos,
           success: function(response) {
             if (response === "success") {
