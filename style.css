@@ -8,7 +8,7 @@
 
 /* Estilo para las etiquetas dentro del grupo de entrada */
 .input-group label {
-    flex: 0.9; /* Ocupa el 90% del espacio disponible */
+    flex: 1; /* Ocupa el 90% del espacio disponible */
     text-align: left; /* Alinea el texto a la izquierda */
     padding-right: 10px; /* Espacio entre la etiqueta y el campo de entrada */
 }
@@ -19,12 +19,14 @@
     flex: 1; /* Ocupa el espacio restante */
     margin-left: 5px; /* Espacio entre el campo de entrada y la etiqueta */
     width: 100%; /* Ancho completo */
+    padding: 2px;
+    border: 1px solid #ccc;
 }
 
 /* Estilo específico para elementos de tipo select */
 .input-group select {
-    padding: 3px; /* Espacio interno dentro del select */
-    border: 1px; /* Grosor del borde */
+    padding: 2px; /* Espacio interno dentro del select */
+    border: 1px solid #ccc;  /* Grosor del borde */
 }
 
 /* Estilo específico para checkboxes */
