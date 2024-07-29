@@ -6,9 +6,9 @@ $(document).ready(function() {
       var alias = $("#alias").val();
       var rut = $("#rut").val();
       var correo = $("#correo").val();
-      var region = $("#id_region").val();
-      var comuna = $("#id_comuna").val();
-      var candidato = $("#id_candidato").val();
+      var region = $("#idRegion").val();
+      var comuna = $("#idComuna").val();
+      var candidato = $("#idCandidato").val();
       var webChecked = $("#web").is(":checked")?1:0;
       var TVChecked = $("#TV").is(":checked")?1:0;
       var redesSocialesChecked = $("#redesSociales").is(":checked")?1:0;

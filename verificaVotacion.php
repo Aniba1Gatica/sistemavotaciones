@@ -1,5 +1,5 @@
 <?php
-include 'conexiones.php';
+include 'conexiones.php'; //Se incluye el archivo conexiones.php para la conexión con la BDD
 // Obtiene los datos del formulario
 $votante = $_POST['votante'];
 $alias = $_POST['alias'];
