@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $candidato = "SELECT idCandidato, nombreCandidato from candidatos";
         $resultadoCandidato = mysqli_query($conn, $candidato) or die("No se pudo realizar la consulta SQL");
         while ($row = mysqli_fetch_assoc($resultadoCandidato)) {
-            echo '<option value="' . $row['idCandidato'] . '">' . $row['nombreCandidato'] . '</option>';
+            echo '<option value="' . $row['nombreCandidato'] . '">' . $row['nombreCandidato'] . '</option>';
         }
     }else{
         echo 'Accion no reconocida';

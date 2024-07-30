@@ -16,17 +16,17 @@
                         <input type="text" name="votante" id="votante" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄČĆĖÈÉÊËĖĮÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇČŠŽ\s]+" 
                             title="El nombre y apellido deben contener solo letras y caracteres especiales como á, é, í, ó, ú, ü, ñ, etc." required />
                     </div>
-                    </div>
 
                     <div class="input-group">
                         <label for="alias" class="input-group">Alias:</label>
-                        <input type="text" name="alias" id="alias" pattern="[a-zA-Z0-9]+" required/>
+                        <input type="text" name="alias" id="alias" pattern="^[A-Za-z0-9]+$" minlength="5"
+                        title="Solo se permiten letras y números y mínimo 5 carácteres." required />
                     </div>
 
                     <div class="input-group">
                         <label for="rut" class="input-group">RUT:</label>
                         <input is="input-rut" type="text" name="rut" id="rut" required />
-                      </div>
+                    </div>
 
                     <div class="input-group">
                         <label for="correo" class="input-group">Email:</label>

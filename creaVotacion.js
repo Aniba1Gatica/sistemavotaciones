@@ -28,11 +28,14 @@ $(document).ready(function() {
         amigo: amigoChecked
       };
 
+      var casillasMarcadas = [webChecked, TVChecked, redesSocialesChecked, amigoChecked];
+      var casillas = casillasMarcadas.filter(option => option).length
+
       //Valida el correo si esta escrito correctamente validando dominio y estructura
       if (validator.isEmail(correo) && validator.isEmail(correo, {checkDNS: true}) 
           && validator.isEmail(correo, {domain_specific_validation: true})){
-            if(webChecked || TVChecked || redesSocialesChecked || amigoChecked){ //Pregunta si las casillas estan marcadas
-              $.ajax({
+            if(casillas >= 2){ //Pregunta si al menos 2 casillas estan marcadas
+              $.ajax({ //Función AJAX para registrar el voto en caso que los demás filtros se cumplan
                 type: "POST",
                 url: "verificaVotacion.php",
                 data: datos,
@@ -45,7 +48,7 @@ $(document).ready(function() {
                 }
               }); 
             }else{
-              $("#mensaje").html("Debes seleccionar al menos una casilla para poder votar")
+              $("#mensaje").html("Debes seleccionar al menos dos casilla para poder votar")
             }
           }else {
           $("#mensaje").html("Verifique que su correo esté correcto");
