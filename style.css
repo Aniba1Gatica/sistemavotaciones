@@ -51,3 +51,15 @@
 .how-found {
     white-space: nowrap; /* Evita el salto de línea en el texto */
 }
+
+/* Estilos adicionales para la página de votación */
+body {
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    font-family: sans-serif; /* Fuente genérica sin serifas */
+    text-align: left;
+    margin-bottom: 20px;
+}
