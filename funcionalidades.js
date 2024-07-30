@@ -19,6 +19,6 @@ $(document).ready(function() {
       }, error: function(jqXHR, textStatus, errorThrown) {
         console.error("Error en la solicitud AJAX: " + textStatus + " - " + errorThrown);
     }
-  });
+  }); 
 });
 

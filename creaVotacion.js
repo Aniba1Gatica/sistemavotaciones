@@ -27,22 +27,27 @@ $(document).ready(function() {
         redesSociales: redesSocialesChecked,
         amigo: amigoChecked
       };
-  
-      if (webChecked || TVChecked || redesSocialesChecked || amigoChecked) {
-        $.ajax({
-          type: "POST",
-          url: "verificaVotacion.php",
-          data: datos,
-          success: function(response) {
-            if (response === "success") {
-              $("#mensaje").html("Voto registrado correctamente");
-            } else {
-              $("#mensaje").html("Error al registrar el voto: " + response);
+
+      //Validar correo
+      //var email = document.getElementById("correo").value;
+      if (validator.isEmail(correo) && validator.isEmail(correo, {checkDNS: true}) 
+          && validator.isEmail(correo, {domain_specific_validation: true}) 
+          && webChecked || TVChecked || redesSocialesChecked || amigoChecked) {
+          $.ajax({
+            type: "POST",
+            url: "verificaVotacion.php",
+            data: datos,
+            success: function(response) {
+              if (response === "success") {
+                $("#mensaje").html("Voto registrado correctamente");
+              } else {
+                $("#mensaje").html("Error al registrar el voto: " + response);
+              }
             }
-          }
-        });
-      } else {
-        $("#mensaje").html("Por favor seleccione al menos una opción para cómo se enteró de nosotros.");
+          }); 
+        }else {
+          $("#mensaje").html("Por favor marque una casilla de como nos conoció y verifique que su correo esté correcto");
+        }
       }
-    });
+    );
   });
