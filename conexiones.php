@@ -2,7 +2,7 @@
 $server = "localhost";
 $user   = "root";
 $passwd = "";
-$db    = "sistemaVotaciones"; //Nombre Base de datos
+$db    = "sistemavotaciones"; //Nombre Base de datos
 
 // Crea la conexión
 $conn = new mysqli($server, $user, $passwd, $db);
@@ -10,5 +10,7 @@ $conn = new mysqli($server, $user, $passwd, $db);
 // Verifica la conexión
 if ($conn->connect_error) {
   die("Conexión fallida: ". $conn->connect_error);
+} else{
+  echo "Conexión exitosa";
 }
 ?>

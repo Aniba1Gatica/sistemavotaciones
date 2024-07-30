@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <fieldset>
+    <fieldset style="width: 50%;">
         <head>
             <meta charset="UTF-8">
             <title>FORMULARIO DE VOTACIÓN</title>
@@ -8,9 +8,8 @@
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!--  Incluye jQuery -->
         </head>
         <body>
-            <form id="formulario-votación" style="width: auto;" action="conexiones.php" method="post">
+            <form id="formulario-votación" style="width: auto;" action="consultor.php" method="post">
                 <h1>FORMULARIO DE VOTACIÓN</h1>
-                <fieldset style="width: 45%; border: 2px inset white;">
                     <!--  Inicio del formulario -->
                     <div class="input-group"> 
                         <label for="votante" class="input-group">Nombre y Apellido:</label>
@@ -37,8 +36,8 @@
 
                     <div class="input-group">
                         <label for="idRegion" class="input-group">Región:</label>
-                        <select id="idRegion" name="region" autocomplete="off" required>
-                            <option  value=""></option>
+                        <select id="idRegion" name="region" required>
+                            <option value=""></option>
                         </select>
                     </div>
 
@@ -54,26 +53,25 @@
                     </div>
                     <!-- Sección del checkbox -->
                     <div class="input-group how-found">
-                        ¿Cómo se enteró de nosotros?
-                        <div style="display:flex; align-items: center; margin-left: 10px;">
-                          <input type="checkbox" name="web" id="web" />
+                        <label class="input-group">¿Cómo se enteró de nosotros? </label> 
+                        <div>
+                          <input type="checkbox" class="input-group-checkbox" name="web" id="web"  />
                           <label for="web">Web</label>
                         </div>
-                        <div style="display:flex; align-items: center; margin-left: 10px;">
-                          <input type="checkbox" name="TV" id="TV" />
+                        <div >
+                          <input type="checkbox" class="input-group-checkbox" name="TV" id="TV" />
                           <label for="TV">TV</label>
                         </div>
-                        <div style="display:flex; align-items: center; margin-left: 10px;">
-                          <input type="checkbox" name="redesSociales" id="redesSociales" />
+                        <div>
+                          <input type="checkbox" class="input-group-checkbox" name="redesSociales" id="redesSociales" />
                           <label for="redesSociales">Redes Sociales</label>
                         </div>
-                        <div style="display:flex; align-items: center; margin-left: 10px;">
-                          <input type="checkbox" name="amigo" id="amigo"/>
+                        <div >
+                          <input type="checkbox" class="input-group-checkbox"name="amigo" id="amigo"/>
                           <label for="amigo">Amigo</label><br/>
                         </div>
                     </div>
                     <p><button type="submit">Votar</button></p>
-                </fieldset>
                 <div id="mensaje"></div>
                 <script src="funcionalidades.js"></script>
                 <script src="creaVotacion.js"></script>

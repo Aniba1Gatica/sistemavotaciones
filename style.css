@@ -28,11 +28,23 @@
     padding: 2px; /* Espacio interno dentro del select */
     border: 1px solid #ccc;  /* Grosor del borde */
 }
-
 /* Estilo específico para checkboxes */
-.input-group input[type="checkbox"] {
-    margin-right: 2px; /* Espacio entre checkboxes */
-    background-color: rgb(198, 198, 198); /* Color de fondo para checkboxes */
+.input-group-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    width: 400px; /* Asegura que el ancho del contenedor sea el mismo que los demás grupos */
+}
+
+.input-group-checkbox label {
+    flex: 1; /* Ocupa el espacio disponible */
+    text-align: left; /* Alinea el texto a la izquierda */
+    padding-right: 10px; /* Espacio entre la etiqueta y el campo de entrada */
+    min-width: 100px; /* Ancho mínimo de la etiqueta */
+}
+
+.input-group-checkbox input[type="checkbox"] {
+    margin-left: 10px; /* Espacio entre checkbox y etiqueta */
 }
 
 /* Estilo para el texto con clase 'how-found' */
