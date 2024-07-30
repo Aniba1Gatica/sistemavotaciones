@@ -28,25 +28,27 @@ $(document).ready(function() {
         amigo: amigoChecked
       };
 
-      //Validar correo
-      //var email = document.getElementById("correo").value;
+      //Valida el correo si esta escrito correctamente validando dominio y estructura
       if (validator.isEmail(correo) && validator.isEmail(correo, {checkDNS: true}) 
-          && validator.isEmail(correo, {domain_specific_validation: true}) 
-          && webChecked || TVChecked || redesSocialesChecked || amigoChecked) {
-          $.ajax({
-            type: "POST",
-            url: "verificaVotacion.php",
-            data: datos,
-            success: function(response) {
-              if (response === "success") {
-                $("#mensaje").html("Voto registrado correctamente");
-              } else {
-                $("#mensaje").html("Error al registrar el voto: " + response);
-              }
+          && validator.isEmail(correo, {domain_specific_validation: true})){
+            if(webChecked || TVChecked || redesSocialesChecked || amigoChecked){ //Pregunta si las casillas estan marcadas
+              $.ajax({
+                type: "POST",
+                url: "verificaVotacion.php",
+                data: datos,
+                success: function(response) {
+                  if (response === "success") {
+                    $("#mensaje").html("Voto registrado correctamente");
+                  } else {
+                    $("#mensaje").html("Error al registrar el voto: " + response);
+                  }
+                }
+              }); 
+            }else{
+              $("#mensaje").html("Debes seleccionar al menos una casilla para poder votar")
             }
-          }); 
-        }else {
-          $("#mensaje").html("Por favor marque una casilla de como nos conoció y verifique que su correo esté correcto");
+          }else {
+          $("#mensaje").html("Verifique que su correo esté correcto");
         }
       }
     );
