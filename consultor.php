@@ -1,18 +1,27 @@
 <?php
 include "conexiones.php";
 
-// Consulta para obtener las regiones
-$query = "SELECT idRegion, nombreRegion FROM regiones";
-$resultado = mysqli_query($conn, $query) or die("No se pudo realizar la consulta SQL");
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $accion = $_POST['accion'];
 
-if ($resultado) {
-    // Imprimir las opciones del select
-    while ($row = mysqli_fetch_assoc($resultado)) {
-        echo '<option value="' . $row['idRegion'] . '">' . $row['nombreRegion'] . '</option>';
+    if ($accion == 'obtenerRegion'){
+        $region = "SELECT idRegion, nombreRegion FROM regiones";
+        $resultadoRegion = mysqli_query($conn, $region) or die("No se pudo realizar la consulta SQL");
+        while ($row = mysqli_fetch_assoc($resultadoRegion)) {
+            echo '<option value="' . $row['idRegion'] . '">' . $row['nombreRegion'] . '</option>';
+        }
+    }elseif ($accion == 'obtenerCandidato'){
+        $candidato = "SELECT idCandidato, nombreCandidato from candidatos";
+        $resultadoCandidato = mysqli_query($conn, $candidato) or die("No se pudo realizar la consulta SQL");
+        while ($row = mysqli_fetch_assoc($resultadoCandidato)) {
+            echo '<option value="' . $row['idCandidato'] . '">' . $row['nombreCandidato'] . '</option>';
+        }
+    }else{
+        echo 'Accion no reconocida';
     }
-} else {
-    echo 'Error al ejecutar la consulta: ' . mysqli_error($conn);
-}
+}else{
+    echo 'Método no permitido';
+};
 
 // Cerrar la conexión a la base de datos
 mysqli_close($conn);
