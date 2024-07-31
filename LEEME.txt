@@ -39,7 +39,10 @@ FOREIGN KEY (region) REFERENCES regiones(idRegion);
 -Una vez importadas las tablas, ya se puede ejecutar normalmente el programa.
 
 Paso 4: Viendo la página 
--Una vez importadas las tablas, se debe clona el repositorio de Github, esto creará una carpeta que debe colocarse dentro
+-Una vez importadas las tablas, se debe clona el repositorio de Github (Haga click en el botón Code y copie el enlace HTTPS. Ahora utilizando 
+un interpretador de c´ódigo como Visual Studio Code importa el repositorio pegando el enlace de git. 
+Para más detalles añadiré un enlace con un video explicativo https://www.youtube.com/watch?v=_IgGv8aJrzE ), 
+esto creará una carpeta que debe colocarse dentro
 de la carpeta HTTDOCS de XAMPP para así esta funcione correctamente. (La ruta de la carpeta variará dependiendo de donde
 instaló XAMPP, por lo general, es en C:\XAMMP\htdocs)
 -Una vez clonado el repositorio, se debe abrir el navegador y escribir la siguiente URL
