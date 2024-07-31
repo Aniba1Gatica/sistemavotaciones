@@ -1,0 +1,55 @@
+/* Estilo para el contenedor de grupos de entrada */
+.input-group {
+    display: flex; /* Utiliza el modelo de caja flexible para organizar los elementos */
+    align-items: center; /* Centra verticalmente los elementos dentro del contenedor */
+    margin-bottom: 5px; /* Espacio entre grupos de entrada */
+    width: 400px; /* Ancho fijo del contenedor */
+}
+
+/* Estilo para las etiquetas dentro del grupo de entrada */
+.input-group label {
+    flex: 1; /* Ocupa el 90% del espacio disponible */
+    text-align: left; /* Alinea el texto a la izquierda */
+    padding-right: 10px; /* Espacio entre la etiqueta y el campo de entrada */
+}
+
+/* Estilo para campos de entrada (input) y select dentro del grupo */
+.input-group input,
+.input-group select {
+    flex: 1; /* Ocupa el espacio restante */
+    margin-left: 5px; /* Espacio entre el campo de entrada y la etiqueta */
+    width: 100%; /* Ancho completo */
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+/* Estilo específico para elementos de tipo select */
+.input-group select {
+    padding: 2px; /* Espacio interno dentro del select */
+    border: 1px solid #ccc;  /* Grosor del borde */
+}
+/* Estilo específico para checkboxes */
+.input-group-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    width: 400px; /* Asegura que el ancho del contenedor sea el mismo que los demás grupos */
+}
+
+.input-group-checkbox label {
+    flex: 1; /* Ocupa el espacio disponible */
+    text-align: left; /* Alinea el texto a la izquierda */
+    padding-right: 10px; /* Espacio entre la etiqueta y el campo de entrada */
+    min-width: 100px; /* Ancho mínimo de la etiqueta */
+}
+
+.input-group-checkbox input[type="checkbox"] {
+    margin-left: 10px; /* Espacio entre checkbox y etiqueta */
+}
+
+/* Estilo para el texto con clase 'how-found' */
+.how-found {
+    white-space: nowrap; /* Evita el salto de línea en el texto */
+}
+
+

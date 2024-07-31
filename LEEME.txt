@@ -1,0 +1,78 @@
+Versiones lenguajes utilizados:
+-Php 8.2.12
+-MySQL 8.2.12
+-HTML5
+
+Herramientas utilizadas
+-Visual Studio Code
+-XAMMP v3.3.0
+
+Explicación para el correcto funcionamiento del programa
+
+Paso 1: Configurar XAMPP
+-Para empezar se debe instalar el programa llamado XAMPP para que funcione correctamente todo. Este nos permitirá ejecutar 
+una Base de Datos (Que en adelante abreviaremos como BDD) y un servidor Apache. La version de XAMPP utilizada es v3.3.0
+-Una vez instalado se debe cerciorarse que Apache y MySQL estén ejecutandose, para saberlo es simplemente verificar que bajo 
+la columna de Actions, los botones de Apache y MySQL digan Stop, significando que esta ejecutandose ya.
+-Con esto se tiene funcionando XAMPP correctamente y ahora se debe confiugurar la BDD.
+
+Paso 2: Crear BDD
+-Para crear la BDD se debe abrir el programa llamado phpMyAdmin, el cual se accede en la misma aplicacion de XAMPP. 
+Simplemente se hace click en el botón Admin en la misma fila que la categoría MySQL, abriéndose la página de phpMyAdmin.
+-Una vez abierto phpMyAdmin, se debe crear una nueva BDD, para esto se de clic en el botón "Nueva" 
+ubicado en la parte superior izquierda de la pantalla.
+-Una vez creado la BDD, se debe darle un nombre, en este caso se le dará el nombre de "sistemavotaciones". Las tablas no es necesario crearlas
+ya que se importarán a través de los archivos SQL encontrados en este mismo proyecto, bajo la carpeta con el mismo nombre.
+
+Paso 3: Importar tablas
+-Una vez creada la BDD, se debe importar las tablas, para esto de clic 
+en el botón "Importar" ubicado en la parte superior derecha de la pantalla.
+-Una vez abierto, se debe seleccionar el archivo SQL que se encuentra en la carpeta 
+llamada "SQL" en este proyecto y darle clic en el botón "Importar".
+-Esto se debe realizar para las cuatro tablas contenidas en la carpeta SQL las cuales son
+"candidatos", "regiones", "comunas" y "votos" siguiendo ese orden para evitar problemas.
+-En cuyo caso, la relación entre la tabla regiones y comunas no cumpla, en la sección de SQL de la BDD
+se debe agregar la siguiente instrucción:
+ALTER TABLE comunas
+ADD CONSTRAINT fk_region
+FOREIGN KEY (region) REFERENCES regiones(idRegion);
+-Una vez importadas las tablas, ya se puede ejecutar normalmente el programa.
+
+Paso 4: Viendo la página 
+-Una vez importadas las tablas, se debe clona el repositorio de Github, esto creará una carpeta que debe colocarse dentro
+de la carpeta HTTDOCS de XAMPP para así esta funcione correctamente. (La ruta de la carpeta variará dependiendo de donde
+instaló XAMPP, por lo general, es en C:\XAMMP\htdocs)
+-Una vez clonado el repositorio, se debe abrir el navegador y escribir la siguiente URL
+http://localhost/sistemavotaciones/
+-Ahora con esto listo ya se puede utilizar normalmente la aplicacion web.
+
+Explicación y detalles relacionados con el código
+-La pantalla principal es el archivo "index.html" en este se realizó la estructura básica para la página, además
+se incluyen diferentes scripts los cuáles tienen como funcionamiento la verificación de la estructura de datos del formulario,
+su correcta validación, etc.
+-Para el diseño de la página se utilizó un archivo llamado "style.css". Dentro de este archivo se crearon diferentes "grupos" 
+para así hacer más sencilla la tarea de personalización como así también para que todo tenga un correcto orden.
+-En el repositorio se encuentran tres archivos Php, "conexiones.php", "consultor.php" y "verificaVotación". 
+-El archivo "conexiones.php" es el encargado de realizar la conexión a la BDD, para esto 
+se utiliza la función "mysqli_connect".
+-El archivo "consultor.php" es el encargado de realizar las consultas a la BDD para así obtener los datos almacenados de
+las regiones, comunas y candidatos. Estos datos se reflejan en sus respectivos Combo Box llamados de igual manera.
+-El archivo "verificaVotación.php" es el encargado de verificar si el
+usuario ya ha votado o no, para esto se utiliza la función "mysqli_query" para así realizar la consulta a la BDD 
+y obtener los datos de la tabla "votos". En cuyo caso el usuario no ha votado, se procede con el registro del voto en la BDD.
+-Para realizar las conexiones entre los archivos HTML y Php, se utilizó JavaScript, más específicamente funciones Ajax. 
+Hay dos archivos de este índole, "creaVotacion.js" y "funcionalidades.js".
+-El archivo "creaVotacion.js" es el encargado de realizar la conexión con el archivo Php "verificaVotación.php" 
+para así verificar si el usuario ya ha votado o no. Además verifica la estructura del correo ingresado en el formulario y 
+si las casillas o checkboxes han sido marcadas, en esta ocasión se puso como condición que a lo menos 2 debían estar marcadas.
+Este archivo se ejecuta al momento de presionar el botón de "Votar".
+-El archivo "funcionalidades.js" es el encargado de realizar la conexión con el
+archivo "consultor.php" para así obtener los datos de las regiones, comunas y
+candidatos. Además se encarga de procesar dinámicamente el cambio de las comunas al momento de cambiar la region. 
+Este archivo se ejecuta al momento de iniciar la aplicacion para así mostrar desde un principio los datos requeridos almacenados en la BDD.
+
+
+
+
+
+
