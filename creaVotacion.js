@@ -37,8 +37,8 @@ $(document).ready(function() {
             if(casillas >= 2){ //Pregunta si al menos 2 casillas estan marcadas
               $.ajax({ //Función AJAX para registrar el voto en caso que los demás filtros se cumplan
                 type: "POST",
-                url: "verificaVotacion.php",
-                data: datos,
+                url: "verificaVotacion.php", //Llama al archivo php para realizar las últimas verificaciones
+                data: datos, 
                 success: function(response) {
                   if (response === "success") {
                     $("#mensaje").html("Voto registrado correctamente");
@@ -48,7 +48,7 @@ $(document).ready(function() {
                 }
               }); 
             }else{
-              $("#mensaje").html("Debes seleccionar al menos dos casilla para poder votar")
+              $("#mensaje").html("Debes seleccionar al menos dos casillas para poder votar")
             }
           }else {
           $("#mensaje").html("Verifique que su correo esté correcto");
